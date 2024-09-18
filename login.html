@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap">
+    <style>
+        body {
+            font-family: 'Poppins', Arial, sans-serif; /* Aplicando a fonte Poppins */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f2f2f2;
+        }
+        .login-container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            box-sizing: border-box; /* Inclui o padding e border no cálculo da largura total */
+        }
+        .login-container h2 {
+            margin-top: 0;
+            font-size: 24px;
+            color: #333333;
+            font-weight: 600; /* Usando peso de fonte mais grosso */
+        }
+        .login-container label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        .login-container input[type="text"],
+        .login-container input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+            box-sizing: border-box; /* Inclui o padding e border no cálculo da largura total */
+        }
+        .login-container input[type="text"] {
+            background-color: #e9e9e9;
+        }
+        .login-container input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            box-sizing: border-box; /* Inclui o padding e border no cálculo da largura total */
+        }
+        .login-container input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .login-container .forgot-password-link {
+            display: block;
+            margin-top: 10px;
+            text-align: center;
+        }
+        .login-container .forgot-password-link a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+        .login-container .forgot-password-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="login-form">
+            <label for="username">Usuário:</label>
+            <input type="text" id="username" value="gabriel" readonly>
+
+            <label for="password">Senha:</label>
+            <input type="password" id="password" name="password" required>
+
+            <input type="submit" value="Entrar">
+        </form>
+        <div class="forgot-password-link">
+            <p>Esqueceu a senha? <a href="recuperar_senha.html">Recupere aqui</a></p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Impede o envio do formulário
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Credenciais corretas
+            const usuarioCorreto = 'gabriel';
+            const senhaCorreta = 'ga123';
+
+            // Verificação
+            if (username === usuarioCorreto && password === senhaCorreta) {
+                // Redireciona para a página inicial
+                window.location.href = 'home.html';
+            } else {
+                alert('Usuário ou senha incorretos. Tente novamente.');
+            }
+        });
+    </script>
+</body>
+</html>

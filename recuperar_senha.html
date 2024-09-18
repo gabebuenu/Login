@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperar Senha</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f2f2f2;
+        }
+        .recover-container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+        .recover-container h1 {
+            font-size: 28px;
+            color: #333333;
+            margin: 0 0 20px;
+            font-weight: 600;
+        }
+        .recover-container p {
+            font-size: 16px;
+            color: #666666;
+            margin: 10px 0;
+        }
+        .recover-container a {
+            color: #4CAF50;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .recover-container a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="recover-container">
+        <h1 id="password-text">Senha Recuperada: </h1>
+        <p>Por favor, anote a senha. Se você precisar de mais assistência, entre em contato com o suporte.</p>
+        <p><a href="login.html">Voltar para o Login</a></p>
+    </div>
+
+    <script>
+        // Função para buscar a senha do login.html
+        async function fetchPassword() {
+            try {
+                const response = await fetch('login.html');
+                const text = await response.text();
+                // Encontrar a senha no conteúdo de login.html
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(text, 'text/html');
+                const password = 'ga123'; // Aqui você deve extrair a senha real, simplificado para o exemplo
+                document.getElementById('password-text').textContent = `Senha Recuperada: ${password}`;
+            } catch (error) {
+                console.error('Erro ao buscar a senha:', error);
+            }
+        }
+
+        fetchPassword();
+    </script>
+</body>
+</html>
